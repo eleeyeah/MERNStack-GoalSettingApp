@@ -80,6 +80,7 @@ const deleteGoal = asyncHandler(async (req, res) => {
     const user = await User.findById(req.user.id);
 
     //Check for user
+    
 
     if (!user) {
         res.status(401);
