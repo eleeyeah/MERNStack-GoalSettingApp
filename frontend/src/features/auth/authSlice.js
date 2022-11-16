@@ -24,6 +24,10 @@ export const register = createAsyncThunk('auth/register', async (user, thunkAPI)
 })
 
 
+export const logout = createAsyncThunk('auth/logout', async () => {
+    await authService.logout();
+})
+
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
@@ -36,22 +40,26 @@ export const authSlice = createSlice({
         }
     },
     extraReducers: (builder) => {
-        builder.addCase(register.pending, (state) => {
-            state.isLoading = true;
-            /* state.isError = false;
-            state.message = ''; */
-        })
-        builder.addCase(register.fulfilled, (state, action) => {
-            state.isLoading = false;
-            state.isSuccess = true;
-            state.user = action.payload;
-        })
-        builder.addCase(register.rejected, (state, action) => {
-            state.isLoading = false;
-            state.isError = true;
-            state.message = action.payload;
-            state.user = null;
-        })
+        builder
+            .addCase(register.pending, (state) => {
+                state.isLoading = true;
+                /* state.isError = false;
+                state.message = ''; */
+            })
+            .addCase(register.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.isSuccess = true;
+                state.user = action.payload;
+            })
+            .addCase(register.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+                state.message = action.payload;
+                state.user = null;
+            })
+            .addCase(logout.fulfilled, (state) => {
+                state.user = null;
+            })
     }
 })
 export const { reset } = authSlice.actions;
