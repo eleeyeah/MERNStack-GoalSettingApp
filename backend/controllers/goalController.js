@@ -78,7 +78,6 @@ const deleteGoal = asyncHandler(async (req, res) => {
     }
 
 
-
     //Check for user
 
 
