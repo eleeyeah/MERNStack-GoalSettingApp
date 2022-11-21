@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { FaUser } from "react-icons/fa";
 import { register, reset } from "../features/auth/authSlice";
 import Spinner from "../components/Spinner";
 
@@ -42,6 +43,8 @@ function Register() {
   };
 
   const onSubmit = (e) => {
+    e.preventDefault();
+
     if (password !== password2) {
       toast.error("Passwords do not match");
     } else {
@@ -50,10 +53,9 @@ function Register() {
         email,
         password,
       };
+
       dispatch(register(userData));
     }
-
-    e.preventDefault();
   };
 
   if (isLoading) {
@@ -63,8 +65,10 @@ function Register() {
   return (
     <>
       <section className="heading">
-        <h1>Register</h1>
-        <p>Please create an account first</p>
+        <h1>
+          <FaUser /> Register
+        </h1>
+        <p>Please create an account</p>
       </section>
 
       <section className="form">
@@ -98,7 +102,7 @@ function Register() {
               id="password"
               name="password"
               value={password}
-              placeholder="Enter your password"
+              placeholder="Enter password"
               onChange={onChange}
             />
           </div>
@@ -109,7 +113,7 @@ function Register() {
               id="password2"
               name="password2"
               value={password2}
-              placeholder="Confirm your password"
+              placeholder="Confirm password"
               onChange={onChange}
             />
           </div>

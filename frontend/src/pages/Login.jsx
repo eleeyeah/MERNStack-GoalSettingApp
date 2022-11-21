@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { FaSignInAlt } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -57,8 +58,10 @@ function Login() {
   return (
     <>
       <section className="heading">
-        <h1>Login</h1>
-        <p>Start setting your Goals</p>
+        <h1>
+          <FaSignInAlt /> Login
+        </h1>
+        <p>Login and start setting goals</p>
       </section>
 
       <section className="form">
@@ -81,7 +84,7 @@ function Login() {
               id="password"
               name="password"
               value={password}
-              placeholder="Enter your password"
+              placeholder="Enter password"
               onChange={onChange}
             />
           </div>
