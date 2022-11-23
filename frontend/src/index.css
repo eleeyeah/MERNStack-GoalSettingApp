@@ -9,11 +9,12 @@
 body {
   font-family: "Poppins", sans-serif;
   height: 100vh;
+  background-color: rgb(104, 103, 152);
 }
 
 a {
   text-decoration: none;
-  color: #000;
+  color: rgb(255, 255, 255);
 }
 
 p {
@@ -93,10 +94,11 @@ h3 {
 }
 
 .goal {
-  background-color: #f4f4f4;
+  background-color: #a996c9;
   margin: 10px 0;
   padding: 20px 0 10px;
   position: relative;
+  
 }
 
 .goal .close {
