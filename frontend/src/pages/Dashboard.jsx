@@ -29,7 +29,7 @@ function Dashboard() {
     return () => {
       dispatch(reset());
     };
-  }, [/* user, isError, message */]);
+  }, [navigate, dispatch]);
 
   if (isLoading) {
     return <Spinner />;
@@ -45,12 +45,8 @@ function Dashboard() {
       </section>
 
       <GoalForm />
-        </div>
-      ): (
-        <p>Please login first</p>
-      )}
 
-<section className="content">
+      <section className="content">
   {goals.length > 0 ? (
     <div className="goals">
       {goals.map((goal) => (
@@ -61,6 +57,15 @@ function Dashboard() {
     <h3>You have not set any goals</h3>
   )}
 </section>
+        </div>
+
+        
+
+      ): (
+        <h3>Please login first</h3>
+      )}
+
+
     </>
   );
 }

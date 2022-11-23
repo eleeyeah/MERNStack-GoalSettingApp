@@ -69,7 +69,7 @@ h3 {
 }
 
 .header ul li a:hover {
-  color: #777;
+  color: rgb(235, 223, 223);
 }
 
 .header ul li a svg {
@@ -84,7 +84,7 @@ h3 {
 }
 
 .heading p {
-  color: #828282;
+  color: #c0bfbf;
 }
 
 .goals {
