@@ -1,4 +1,5 @@
 # MERNStack-GoalSettingApp
+https://goalsetterilie.onrender.com/
 <p> First <br>
 run npm i in the root dir and also in the frontend dir<br>
 Then <br> 
