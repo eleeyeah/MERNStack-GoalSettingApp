@@ -29,7 +29,7 @@ function Dashboard() {
     return () => {
       dispatch(reset());
     };
-  }, [/* user, navigate, isError, message, dispatch */]);
+  }, [/* user, isError, message */]);
 
   if (isLoading) {
     return <Spinner />;
@@ -37,24 +37,30 @@ function Dashboard() {
 
   return (
     <>
-      <section className="heading">
+      {user ? (
+        <div>
+          <section className="heading">
         <h1>Welcome {user && user.name}</h1>
         <p>Goals Dashboard</p>
       </section>
 
       <GoalForm />
+        </div>
+      ): (
+        <p>Please login first</p>
+      )}
 
-      <section className="content">
-        {goals.length > 0 ? (
-          <div className="goals">
-            {goals.map((goal) => (
-              <GoalItem key={goal._id} goal={goal} />
-            ))}
-          </div>
-        ) : (
-          <h3>You have not set any goals</h3>
-        )}
-      </section>
+<section className="content">
+  {goals.length > 0 ? (
+    <div className="goals">
+      {goals.map((goal) => (
+        <GoalItem key={goal._id} goal={goal} />
+      ))}
+    </div>
+  ) : (
+    <h3>You have not set any goals</h3>
+  )}
+</section>
     </>
   );
 }
